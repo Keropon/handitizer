@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="description" content="Turn your hands into live geometry over your webcam — hand-gesture vertices, polygons, and stacked shader effects." />
+  <meta name="theme-color" content="#101820" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>✋</text></svg>" />
+  <title>handitizer — hand-gesture geometry over live video</title>
+</head>
+<body>
+  <canvas id="scene"></canvas>
+  <video id="video" playsinline muted hidden></video>
+  <video id="overlay" playsinline loop hidden></video>
+
+  <button type="button" id="ui-toggle" aria-pressed="false">Hide UI</button>
+
+  <aside id="panel" aria-label="Tweaks">
+    <button type="button" id="panel-head" aria-expanded="true" aria-controls="panel-body">
+      <span>tweaks</span><span class="arrow" aria-hidden="true">▾</span>
+    </button>
+    <form id="panel-body">
+      <label>Points / polygon
+        <select id="pp">
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5" selected>5</option>
+        </select>
+      </label>
+      <label class="chk"><input type="checkbox" id="multi" checked> Multiple polygons</label>
+      <label class="chk"><input type="checkbox" id="cross"> Cross-hand only</label>
+      <label class="chk"><input type="checkbox" id="edges" checked> Show edges</label>
+      <label class="chk"><input type="checkbox" id="vid"> Video on face (audio)</label>
+      <label>Clip <input type="file" id="vidfile" accept="video/*"></label>
+      <output id="vidname">no clip loaded</output>
+      <label>Point size <input type="range" id="psize" min="8" max="48" value="26"></label>
+      <label>Effect strength <input type="range" id="strength" min="0" max="3" step="0.1" value="1"></label>
+      <fieldset>
+        <legend>Effects (cycled across polygons)</legend>
+        <label class="chk"><input type="checkbox" id="fx-distortion" checked> Distortion</label>
+        <label class="chk"><input type="checkbox" id="fx-negative" checked> Negative</label>
+        <label class="chk"><input type="checkbox" id="fx-sketch" checked> Sketch</label>
+        <label class="chk"><input type="checkbox" id="fx-glitch" checked> Glitch</label>
+      </fieldset>
+      <p class="readout">
+        hands: <span class="stat" id="stat-hands">0</span> ·
+        points: <span class="stat" id="stat-points">0</span>
+      </p>
+    </form>
+  </aside>
+
+  <dialog id="status" open>
+    <form method="dialog">
+      <p>handitizer needs your webcam to turn fingertips into geometry.</p>
+      <button type="button" id="start">Enable camera</button>
+      <p id="status-msg"></p>
+    </form>
+  </dialog>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
