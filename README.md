@@ -4,9 +4,9 @@ Turn your hands into live geometry over your webcam. Built with **MediaPipe
 HandLandmarker** (hand tracking) and **Three.js** (rendering), composited on a
 single WebGL canvas with the camera feed.
 
-**[▶ Live demo](https://keropon.github.io/handitizer/)** · [demo clip (webm)](example.webm)
+**[▶ Live demo](https://keropon.github.io/handitizer/)**
 
-<video src="https://github.com/Keropon/handitizer/raw/main/example.webm" controls muted width="640"></video>
+[example.webm](https://github.com/user-attachments/assets/e0fcd1c3-e8ea-4e76-b5a7-11d4fd566950)
 
 ## How it works
 
