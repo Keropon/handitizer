@@ -4,6 +4,10 @@ Turn your hands into live geometry over your webcam. Built with **MediaPipe
 HandLandmarker** (hand tracking) and **Three.js** (rendering), composited on a
 single WebGL canvas with the camera feed.
 
+**[▶ Live demo](https://keropon.github.io/handitizer/)** · [demo clip (webm)](example.webm)
+
+<video src="https://github.com/Keropon/handitizer/raw/main/example.webm" controls muted width="640"></video>
+
 ## How it works
 
 - **Vertices** — every *extended* fingertip becomes a glowing 3D point
@@ -81,7 +85,7 @@ publishes `dist/` to GitHub Pages. The Vite `base` is `/handitizer/` (see
 
 ## Notes / tuning
 
-- Built against `three@0.160.0` and `@mediapipe/tasks-vision@0.10.14`.
+- Built against `three@0.184.0` and `@mediapipe/tasks-vision@0.10.35`.
 - The video is shown mirrored (selfie view); landmark mapping accounts for this,
   and the face shader samples the already-mirrored composite directly.
 - Knobs: most behaviour is in the tweaks panel; in code, the effect maths live
